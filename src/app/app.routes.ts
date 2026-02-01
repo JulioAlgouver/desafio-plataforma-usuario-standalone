@@ -1,36 +1,26 @@
 import { Routes } from '@angular/router';
 import { InitialComponent } from './components/initial/initial.component';
-import { GeneralComponent } from './components/general/general.component';
-import { BasicComponent } from './components/general/components/basic/basic.component';
-import { ContactComponent } from './components/general/components/contact/contact.component';
-import { AddressComponent } from './components/general/components/address/address.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
     {
         path: '',
+        title: 'Início',
         component: InitialComponent,
     },
     {
         path: 'general',
-        component: GeneralComponent,
-        children: [
-            {
-                path: '',
-                redirectTo: 'basic',
-                pathMatch: 'full',
-            },
-            {
-                path: 'basic',
-                component: BasicComponent,
-            },
-            {
-                path: 'contact',
-                component: ContactComponent,
-            },
-            {
-                path: 'address',
-                component: AddressComponent,
-            }
-        ],
+        title: 'Geral',
+        loadChildren: () => import('./components/general/general.routes').then(m => m.GeneralRoutes),
+    },
+    {
+        path: 'transactions',
+        title: 'Transações',
+        loadChildren: () => import('./components/transactions/transactions.routes').then(m => m.TransactionsRoutes),
+    },
+    {
+        path: '**',
+        title: 'Página não encontrada',
+        component: NotFoundComponent,
     }
 ];

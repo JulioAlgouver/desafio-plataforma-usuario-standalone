@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-initial',
+  selector: 'app-not-found',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './initial.component.html',
-  styleUrl: './initial.component.scss'
+  templateUrl: './not-found.component.html',
+  styleUrl: './not-found.component.scss'
 })
-export class InitialComponent {
+export class NotFoundComponent {
 
 }

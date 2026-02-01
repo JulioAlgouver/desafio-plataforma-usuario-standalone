@@ -10,5 +10,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = '2-desafio-plataforma-usuario';
+  title = '2-desafio-plataforma-usuario-resolucao';
 }
